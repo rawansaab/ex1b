@@ -18,6 +18,10 @@ async function loadProfile() {
     const response = await fetch(`/profile?id=${encodeURIComponent(profileId)}`);
     const profileData = await response.json();
 
+    console.log(profileData);
+  } catch (error) {
+    console.error("Error loading profile:", error);
+  }
 }
 
 loadProfile();
