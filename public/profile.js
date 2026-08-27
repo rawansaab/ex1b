@@ -12,4 +12,12 @@
 const urlParams = new URLSearchParams(window.location.search);
 const profileId = urlParams.get("id");
 
-console.log("Profile ID:", profileId);
+// קבלת נתוני הפרופיל מהשרת
+async function loadProfile() {
+  try {
+    const response = await fetch(`/profile?id=${encodeURIComponent(profileId)}`);
+    const profileData = await response.json();
+
+}
+
+loadProfile();
