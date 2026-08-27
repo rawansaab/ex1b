@@ -7,3 +7,9 @@
 * The script reads the profile id from the URL and will use Fetch
 * to receive profile information from the server.
 */
+
+// קריאת מזהה הפרופיל מה-URL
+const urlParams = new URLSearchParams(window.location.search);
+const profileId = urlParams.get("id");
+
+console.log("Profile ID:", profileId);
