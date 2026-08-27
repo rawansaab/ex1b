@@ -8,6 +8,7 @@
 * to receive profile information from the server.
 */
 
+
 // קריאת מזהה הפרופיל מה-URL
 const urlParams = new URLSearchParams(window.location.search);
 const profileId = urlParams.get("id");
@@ -24,9 +25,13 @@ async function loadProfile() {
   }
 }
 
-// הכנת פונקציה להצגת נתוני הפרופיל
+// הצגת שם ותיאור הפרופיל
 function displayProfile(profileData) {
-  console.log("Profile data ready to display:", profileData);
+  const profileName = document.getElementById("profile-name");
+  const profileDescription = document.getElementById("profile-description");
+
+  profileName.textContent = profileData.animal.animal_name;
+  profileDescription.textContent = profileData.animal.description;
 }
 
 loadProfile();
