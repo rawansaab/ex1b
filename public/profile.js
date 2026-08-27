@@ -15,11 +15,14 @@ const profileId = urlParams.get("id");
 // קבלת נתוני הפרופיל מהשרת
 async function loadProfile() {
   try {
-    const response = await fetch(`/profile?id=${encodeURIComponent(profileId)}`);
+    const response = await fetch(
+      `/profile?id=${encodeURIComponent(profileId)}`
+    );
     const profileData = await response.json();
 
     displayProfile(profileData);
     displayTraits(profileData.traits);
+    displayReviews(profileData.reviews);
   } catch (error) {
     console.error("Error loading profile:", error);
   }
@@ -51,6 +54,18 @@ function displayTraits(traits) {
     traitItem.appendChild(traitName);
     traitItem.appendChild(traitValue);
     traitsList.appendChild(traitItem);
+  });
+}
+
+// הכנת מבנה להצגת ההמלצות
+function displayReviews(reviews) {
+  const reviewsList = document.getElementById("reviews-list");
+
+  reviews.forEach(function (review) {
+    const reviewItem = document.createElement("div");
+    reviewItem.classList.add("review-item");
+
+    console.log(reviewsList, reviewItem, review);
   });
 }
 
