@@ -18,10 +18,15 @@ async function loadProfile() {
     const response = await fetch(`/profile?id=${encodeURIComponent(profileId)}`);
     const profileData = await response.json();
 
-    console.log(profileData);
+    displayProfile(profileData);
   } catch (error) {
     console.error("Error loading profile:", error);
   }
+}
+
+// הכנת פונקציה להצגת נתוני הפרופיל
+function displayProfile(profileData) {
+  console.log("Profile data ready to display:", profileData);
 }
 
 loadProfile();
