@@ -6,17 +6,9 @@ Github URL: https://github.com/rawansaab/ex1b
 Description: Stylesheet for the dynamic animal profile page.
 */
 
-/* -----------------------------
-   Part 0: Global / Reset
-   ----------------------------- */
-
 * {
   box-sizing: border-box;
 }
-
-/* -----------------------------
-   Part 1: Page background
-   ----------------------------- */
 
 body {
   margin: 0;
@@ -24,4 +16,16 @@ body {
   background-repeat: repeat;
   background-attachment: fixed;
   font-family: "Bree Serif", serif;
+}
+
+/* -----------------------------
+   Part 2: Main profile container
+   ----------------------------- */
+
+.profile-container {
+  width: 80%;
+  margin: 3% auto;
+  background-color: white;
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
