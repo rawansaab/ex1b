@@ -206,3 +206,38 @@ body {
 .friend-item a:hover {
   background-color: #dddddd;
 }
+/* -----------------------------
+   Part 9: Responsive design
+   ----------------------------- */
+
+@media screen and (max-width: 768px) {
+  .profile-container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .profile-header,
+  .cover-image {
+    height: 250px;
+  }
+
+  .profile-info {
+    padding: 120px 5% 30px;
+  }
+
+  .profile-image {
+    width: 180px;
+    height: 180px;
+    top: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #profile-name {
+    font-size: 8vw;
+  }
+
+  #profile-description {
+    font-size: 16px;
+  }
+}
