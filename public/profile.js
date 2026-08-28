@@ -23,6 +23,7 @@ async function loadProfile() {
     displayProfile(profileData);
     displayTraits(profileData.traits);
     displayReviews(profileData.reviews);
+    displayFriends(profileData.friends);
   } catch (error) {
     console.error("Error loading profile:", error);
   }
@@ -31,7 +32,9 @@ async function loadProfile() {
 // הצגת שם ותיאור הפרופיל
 function displayProfile(profileData) {
   const profileName = document.getElementById("profile-name");
-  const profileDescription = document.getElementById("profile-description");
+  const profileDescription = document.getElementById(
+    "profile-description"
+  );
 
   profileName.textContent = profileData.animal.animal_name;
   profileDescription.textContent = profileData.animal.description;
@@ -74,6 +77,18 @@ function displayReviews(reviews) {
     reviewItem.appendChild(reviewText);
     reviewItem.appendChild(reviewer);
     reviewsList.appendChild(reviewItem);
+  });
+}
+
+// הכנת מבנה להצגת שאר הפרופילים
+function displayFriends(friends) {
+  const friendsList = document.getElementById("friends-list");
+
+  friends.forEach(function (friend) {
+    const friendItem = document.createElement("div");
+    friendItem.classList.add("friend-item");
+
+    console.log(friendsList, friendItem, friend);
   });
 }
 
