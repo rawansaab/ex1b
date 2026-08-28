@@ -40,10 +40,6 @@ body {
   object-fit: cover;
 }
 
-/* -----------------------------
-   Part 4: Profile information
-   ----------------------------- */
-
 .profile-info {
   position: relative;
   padding: 110px 5% 35px;
@@ -74,4 +70,39 @@ body {
   margin: 0 auto;
   line-height: 1.6;
   font-size: 18px;
+}
+
+/* -----------------------------
+   Part 5: Profile traits
+   ----------------------------- */
+
+.traits-section {
+  padding: 2% 5%;
+}
+
+.traits-section h2 {
+  font-family: "Rammetto One", cursive;
+  font-size: 2.5vw;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#traits-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.trait-item {
+  display: flex;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid #dddddd;
+}
+
+.trait-item strong {
+  width: 40%;
+}
+
+.trait-item span {
+  flex: 1;
 }
