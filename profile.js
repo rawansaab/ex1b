@@ -18,6 +18,7 @@
 * 4. Client-side JavaScript will read the JSON using Fetch.
 *
 */
+
 const express = require("express");
 const path = require("path");
 const sqlite3 = require("sqlite3").verbose();
@@ -124,10 +125,12 @@ app.get("/profile", function (req, res) {
                     return;
                   }
 
-                  // קישורים לתמונות הפרופיל
+                  // קישורים לכל תמונות הפרופיל
                   const images = {
                     banner: `/${id}/banner.png`,
-                    profile: `/${id}/profile.png`
+                    profile: `/${id}/profile.png`,
+                    image1: `/${id}/image1.png`,
+                    image2: `/${id}/image2.png`
                   };
 
                   // שליחת כל נתוני הפרופיל כ-JSON
