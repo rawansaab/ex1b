@@ -1,5 +1,6 @@
 /**
-* Names: Rawan Saab (213693625), Lareen Kadour (213992431), George Hanna (324090968)
+* Names: Rawan Saab (213693625), Lareen Kadour (213992431),
+* George Hanna (324090968)
 * Date: July / August 2026
 * Github URL: https://github.com/rawansaab/ex1b
 * Description:
@@ -15,8 +16,8 @@
 * 1. EJS and res.render() were removed.
 * 2. The server now returns JSON using res.json().
 * 3. The HTML page is now located in public/profile.html.
-* 4. Client-side JavaScript will read the JSON using Fetch.
-*
+* 4. Client-side JavaScript reads the JSON using Fetch.
+* 5. Image links are included in the JSON response.
 */
 
 const express = require("express");
@@ -133,13 +134,21 @@ app.get("/profile", function (req, res) {
                     image2: `/${id}/image2.png`
                   };
 
+                  // הוספת קישור לתמונה לכל פרופיל חבר
+                  const friends = friendsRows.map(function (friend) {
+                    return {
+                      animal_name: friend.animal_name,
+                      image: `/${friend.animal_name}/profile.png`
+                    };
+                  });
+
                   // שליחת כל נתוני הפרופיל כ-JSON
                   res.json({
                     id: id,
                     animal: animalRow,
                     traits: traitsRows,
                     reviews: reviewsRows,
-                    friends: friendsRows,
+                    friends: friends,
                     images: images
                   });
                 }
