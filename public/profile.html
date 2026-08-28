@@ -1,9 +1,11 @@
 <!--
-Names: Rawan Saab (213693625), Lareen Kadour (213992431), George Hanna (324090968)
+Names: Rawan Saab (213693625), Lareen Kadour (213992431),
+George Hanna (324090968)
 Date: July / August 2026
 Github URL: https://github.com/rawansaab/ex1b
 Description: Dynamic animal profile page for Exercise 1B.
 -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +17,6 @@ Description: Dynamic animal profile page for Exercise 1B.
 </head>
 
 <body>
-
     <main class="profile-container">
 
         <header class="profile-header">
@@ -23,43 +24,47 @@ Description: Dynamic animal profile page for Exercise 1B.
         </header>
 
         <section class="profile-info">
-
             <img id="profile-image" class="profile-image" alt="Profile image">
-
             <h1 id="profile-name"></h1>
-
             <p id="profile-description"></p>
-
         </section>
 
         <section class="traits-section">
-
             <h2>Profile Information</h2>
-
             <div id="traits-list"></div>
-
         </section>
 
         <section class="reviews-section">
-
             <h2>Endorsements</h2>
-
             <div id="reviews-list"></div>
+        </section>
 
+        <section class="gallery-section">
+            <h2>Gallery</h2>
+
+            <div class="gallery">
+                <img
+                    id="gallery-image-1"
+                    class="gallery-image"
+                    alt="First profile gallery image"
+                >
+
+                <img
+                    id="gallery-image-2"
+                    class="gallery-image"
+                    alt="Second profile gallery image"
+                >
+            </div>
         </section>
 
         <section class="friends-section">
-
             <h2>Meet the Whole Debugging Squad</h2>
-
             <div id="friends-list"></div>
-
         </section>
 
     </main>
 
     <script src="profile.js"></script>
-
 </body>
 
 </html>
