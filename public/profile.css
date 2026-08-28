@@ -72,10 +72,6 @@ body {
   font-size: 18px;
 }
 
-/* -----------------------------
-   Part 5: Profile traits
-   ----------------------------- */
-
 .traits-section {
   padding: 2% 5%;
 }
@@ -105,4 +101,43 @@ body {
 
 .trait-item span {
   flex: 1;
+}
+
+/* -----------------------------
+   Part 6: Reviews
+   ----------------------------- */
+
+.reviews-section {
+  padding: 3% 5%;
+  background-image: url("clouds.webp");
+  background-repeat: repeat;
+  text-align: center;
+}
+
+.reviews-section h2 {
+  font-family: "Rammetto One", cursive;
+  font-size: 2.5vw;
+  text-transform: uppercase;
+}
+
+#reviews-list {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.review-item {
+  border-left: 10px solid #cccaca;
+  background-color: white;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+.review-item p {
+  margin-top: 0;
+  line-height: 1.5;
+}
+
+.review-item strong {
+  display: block;
+  font-style: italic;
 }
