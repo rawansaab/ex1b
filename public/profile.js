@@ -9,12 +9,17 @@
 * from the server and dynamically displays the profile information.
 */
 
-//URL - קריאת מזהה הפרופיל מה
+// קריאת מזהה הפרופיל מה-URL
 const urlParams = new URLSearchParams(window.location.search);
 const profileId = urlParams.get("id");
 
 // קבלת נתוני הפרופיל מהשרת
 async function loadProfile() {
+  if (!profileId) {
+    console.error("Profile ID is missing from the URL.");
+    return;
+  }
+
   try {
     const response = await fetch(
       `/profile?id=${encodeURIComponent(profileId)}`
