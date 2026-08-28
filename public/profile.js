@@ -41,13 +41,17 @@ function displayProfile(profileData) {
   profileDescription.textContent = profileData.animal.description;
 }
 
-// הצגת תמונת הכותרת ותמונת הפרופיל
+// הצגת כל תמונות הפרופיל
 function displayImages(images) {
   const coverImage = document.getElementById("cover-image");
   const profileImage = document.getElementById("profile-image");
+  const galleryImage1 = document.getElementById("gallery-image-1");
+  const galleryImage2 = document.getElementById("gallery-image-2");
 
   coverImage.src = images.banner;
   profileImage.src = images.profile;
+  galleryImage1.src = images.image1;
+  galleryImage2.src = images.image2;
 }
 
 // הצגת תכונות הפרופיל
