@@ -8,6 +8,7 @@
 * to receive profile information from the server.
 */
 
+
 // קריאת מזהה הפרופיל מה-URL
 const urlParams = new URLSearchParams(window.location.search);
 const profileId = urlParams.get("id");
@@ -80,7 +81,7 @@ function displayReviews(reviews) {
   });
 }
 
-// הכנת מבנה להצגת שאר הפרופילים
+// הצגת שאר הפרופילים כקישורים
 function displayFriends(friends) {
   const friendsList = document.getElementById("friends-list");
 
@@ -88,7 +89,13 @@ function displayFriends(friends) {
     const friendItem = document.createElement("div");
     friendItem.classList.add("friend-item");
 
-    console.log(friendsList, friendItem, friend);
+    const friendLink = document.createElement("a");
+    friendLink.textContent = friend.animal_name;
+    friendLink.href =
+      `profile.html?id=${encodeURIComponent(friend.animal_name)}`;
+
+    friendItem.appendChild(friendLink);
+    friendsList.appendChild(friendItem);
   });
 }
 
