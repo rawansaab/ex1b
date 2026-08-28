@@ -57,7 +57,7 @@ function displayTraits(traits) {
   });
 }
 
-// הכנת מבנה להצגת ההמלצות
+// הצגת ההמלצות
 function displayReviews(reviews) {
   const reviewsList = document.getElementById("reviews-list");
 
@@ -65,7 +65,15 @@ function displayReviews(reviews) {
     const reviewItem = document.createElement("div");
     reviewItem.classList.add("review-item");
 
-    console.log(reviewsList, reviewItem, review);
+    const reviewText = document.createElement("p");
+    reviewText.textContent = review.review_text;
+
+    const reviewer = document.createElement("strong");
+    reviewer.textContent = `- ${review.reviewer}`;
+
+    reviewItem.appendChild(reviewText);
+    reviewItem.appendChild(reviewer);
+    reviewsList.appendChild(reviewItem);
   });
 }
 
