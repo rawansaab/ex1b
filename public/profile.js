@@ -9,7 +9,7 @@
 * from the server and dynamically displays the profile information.
 */
 
-// קריאת מזהה הפרופיל מה-URL
+//URL - קריאת מזהה הפרופיל מה
 const urlParams = new URLSearchParams(window.location.search);
 const profileId = urlParams.get("id");
 
@@ -19,6 +19,11 @@ async function loadProfile() {
     const response = await fetch(
       `/profile?id=${encodeURIComponent(profileId)}`
     );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+
     const profileData = await response.json();
 
     displayProfile(profileData);
