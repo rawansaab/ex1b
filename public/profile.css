@@ -175,23 +175,36 @@ body {
 }
 
 #friends-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 180px);
+  justify-content: space-evenly;
   gap: 20px;
 }
 
 .friend-item a {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #eeeeee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: black;
   text-decoration: none;
-  border-radius: 5px;
   font-weight: bold;
 }
 
-.friend-item a:hover {
+.friend-item img {
+  width: 180px;
+  height: 240px;
+  padding: 8px;
+  object-fit: cover;
+}
+
+.friend-item span {
+  display: block;
+  padding: 8px 15px;
+  background-color: #eeeeee;
+  border-radius: 5px;
+}
+
+.friend-item a:hover span {
   background-color: #dddddd;
 }
 
@@ -257,15 +270,16 @@ body {
   }
 
   #friends-list {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .friend-item img {
+    width: 200px;
+    height: 280px;
   }
 
   .friend-item {
-    width: 100%;
-  }
-
-  .friend-item a {
-    width: 80%;
+    margin-bottom: 20px;
   }
 }
