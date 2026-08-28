@@ -103,10 +103,6 @@ body {
   flex: 1;
 }
 
-/* -----------------------------
-   Part 6: Reviews
-   ----------------------------- */
-
 .reviews-section {
   padding: 3% 5%;
   background-image: url("clouds.webp");
@@ -142,10 +138,6 @@ body {
   font-style: italic;
 }
 
-/* -----------------------------
-   Part 7: Gallery
-   ----------------------------- */
-
 .gallery-section {
   padding: 3% 5%;
   text-align: center;
@@ -170,10 +162,6 @@ body {
   max-height: 600px;
   object-fit: cover;
 }
-
-/* -----------------------------
-   Part 8: Friends
-   ----------------------------- */
 
 .friends-section {
   padding: 3% 5%;
@@ -206,6 +194,7 @@ body {
 .friend-item a:hover {
   background-color: #dddddd;
 }
+
 /* -----------------------------
    Part 9: Responsive design
    ----------------------------- */
@@ -239,5 +228,44 @@ body {
 
   #profile-description {
     font-size: 16px;
+  }
+
+  .traits-section h2,
+  .reviews-section h2,
+  .gallery-section h2,
+  .friends-section h2 {
+    font-size: 6vw;
+  }
+
+  .trait-item {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .trait-item strong {
+    width: 100%;
+  }
+
+  .gallery {
+    flex-direction: column;
+  }
+
+  .gallery-image {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  #friends-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .friend-item {
+    width: 100%;
+  }
+
+  .friend-item a {
+    width: 80%;
   }
 }
