@@ -1,11 +1,12 @@
 /**
-* Names: Rawan Saab (213693625), Lareen Kadour (213992431), George Hanna (324090968)
+* Names: Rawan Saab (213693625), Lareen Kadour (213992431),
+* George Hanna (324090968)
 * Date: July / August 2026
 * Github URL: https://github.com/rawansaab/ex1b
 * Description:
 * Client-side code for the dynamic animal profile page.
-* The script reads the profile id from the URL and will use Fetch
-* to receive profile information from the server.
+* The script reads the profile id from the URL, receives JSON data
+* from the server and dynamically displays the profile information.
 */
 
 // קריאת מזהה הפרופיל מה-URL
@@ -94,7 +95,7 @@ function displayReviews(reviews) {
   });
 }
 
-// הצגת שאר הפרופילים כקישורים
+// הצגת שאר הפרופילים עם תמונות וקישורים
 function displayFriends(friends) {
   const friendsList = document.getElementById("friends-list");
 
@@ -103,10 +104,18 @@ function displayFriends(friends) {
     friendItem.classList.add("friend-item");
 
     const friendLink = document.createElement("a");
-    friendLink.textContent = friend.animal_name;
     friendLink.href =
       `profile.html?id=${encodeURIComponent(friend.animal_name)}`;
 
+    const friendImage = document.createElement("img");
+    friendImage.src = friend.image;
+    friendImage.alt = `${friend.animal_name} profile`;
+
+    const friendName = document.createElement("span");
+    friendName.textContent = friend.animal_name;
+
+    friendLink.appendChild(friendImage);
+    friendLink.appendChild(friendName);
     friendItem.appendChild(friendLink);
     friendsList.appendChild(friendItem);
   });
