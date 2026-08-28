@@ -17,10 +17,7 @@
 * 3. The HTML page is now located in public/profile.html.
 * 4. Client-side JavaScript will read the JSON using Fetch.
 *
-* AI Assistance:
-* AI was used to help adapt the previous EJS server code to the new JSON structure.
 */
-
 const express = require("express");
 const path = require("path");
 const sqlite3 = require("sqlite3").verbose();
@@ -127,14 +124,20 @@ app.get("/profile", function (req, res) {
                     return;
                   }
 
-                  // שינוי מהתרגיל הקודם:
-                  // במקום res.render() השרת שולח JSON בלבד.
+                  // קישורים לתמונות הפרופיל
+                  const images = {
+                    banner: `/${id}/banner.png`,
+                    profile: `/${id}/profile.png`
+                  };
+
+                  // שליחת כל נתוני הפרופיל כ-JSON
                   res.json({
                     id: id,
                     animal: animalRow,
                     traits: traitsRows,
                     reviews: reviewsRows,
-                    friends: friendsRows
+                    friends: friendsRows,
+                    images: images
                   });
                 }
               );
