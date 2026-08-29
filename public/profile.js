@@ -1,6 +1,5 @@
 /**
-* Names: Rawan Saab (213693625), Lareen Kadour (213992431),
-* George Hanna (324090968)
+* Names: Rawan Saab (213693625), Lareen Kadour (213992431), George Hanna (324090968)
 * Date: July / August 2026
 * Github URL: https://github.com/rawansaab/ex1b
 * Description:
@@ -9,7 +8,7 @@
 * from the server and dynamically displays the profile information.
 */
 
-// קריאת מזהה הפרופיל מה-URL
+// URL - קריאת מזהה הפרופיל מה 
 const urlParams = new URLSearchParams(window.location.search);
 const profileId = urlParams.get("id");
 
@@ -41,25 +40,25 @@ async function loadProfile() {
   }
 }
 
-// הצגת שם ותיאור הפרופיל
+// הצגת תיאור הפרופיל
 function displayProfile(profileData) {
   const profileName = document.getElementById("profile-name");
   const profileDescription = document.getElementById(
     "profile-description"
   );
 
-  profileName.textContent = profileData.animal.animal_name;
+  profileName.textContent = "My Profile";
   profileDescription.textContent = profileData.animal.description;
 }
 
 // הצגת כל תמונות הפרופיל
 function displayImages(images) {
-  const coverImage = document.getElementById("cover-image");
+  const banner = document.getElementById("banner");
   const profileImage = document.getElementById("profile-image");
   const galleryImage1 = document.getElementById("gallery-image-1");
   const galleryImage2 = document.getElementById("gallery-image-2");
 
-  coverImage.src = images.banner;
+  banner.style.backgroundImage = `url("${images.banner}")`;
   profileImage.src = images.profile;
   galleryImage1.src = images.image1;
   galleryImage2.src = images.image2;
@@ -68,6 +67,8 @@ function displayImages(images) {
 // הצגת תכונות הפרופיל
 function displayTraits(traits) {
   const traitsList = document.getElementById("traits-list");
+
+  traitsList.textContent = "";
 
   traits.forEach(function (trait) {
     const traitItem = document.createElement("div");
@@ -89,18 +90,24 @@ function displayTraits(traits) {
 function displayReviews(reviews) {
   const reviewsList = document.getElementById("reviews-list");
 
+  reviewsList.textContent = "";
+
   reviews.forEach(function (review) {
     const reviewItem = document.createElement("div");
-    reviewItem.classList.add("review-item");
+    reviewItem.classList.add("endorsement-card");
 
     const reviewText = document.createElement("p");
-    reviewText.textContent = review.review_text;
+    reviewText.textContent = `"${review.review_text}"`;
 
-    const reviewer = document.createElement("strong");
+    const separator = document.createElement("hr");
+
+    const reviewer = document.createElement("span");
     reviewer.textContent = `- ${review.reviewer}`;
 
     reviewItem.appendChild(reviewText);
+    reviewItem.appendChild(separator);
     reviewItem.appendChild(reviewer);
+
     reviewsList.appendChild(reviewItem);
   });
 }
@@ -109,11 +116,11 @@ function displayReviews(reviews) {
 function displayFriends(friends) {
   const friendsList = document.getElementById("friends-list");
 
-  friends.forEach(function (friend) {
-    const friendItem = document.createElement("div");
-    friendItem.classList.add("friend-item");
+  friendsList.textContent = "";
 
+  friends.forEach(function (friend) {
     const friendLink = document.createElement("a");
+
     friendLink.href =
       `profile.html?id=${encodeURIComponent(friend.animal_name)}`;
 
@@ -121,13 +128,8 @@ function displayFriends(friends) {
     friendImage.src = friend.image;
     friendImage.alt = `${friend.animal_name} profile`;
 
-    const friendName = document.createElement("span");
-    friendName.textContent = friend.animal_name;
-
     friendLink.appendChild(friendImage);
-    friendLink.appendChild(friendName);
-    friendItem.appendChild(friendLink);
-    friendsList.appendChild(friendItem);
+    friendsList.appendChild(friendLink);
   });
 }
 

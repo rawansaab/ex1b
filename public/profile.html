@@ -1,9 +1,9 @@
 <!--
-Names: Rawan Saab (213693625), Lareen Kadour (213992431),
-George Hanna (324090968)
-Date: July / August 2026
-Github URL: https://github.com/rawansaab/ex1b
-Description: Dynamic animal profile page for Exercise 1B.
+* Names: Rawan Saab (213693625), Lareen Kadour (213992431), George Hanna (324090968)
+* Date: July / August 2026
+* Github URL: https://github.com/rawansaab/ex1b
+* Description:
+* Dynamic animal profile page for Exercise 1B.
 -->
 
 <!DOCTYPE html>
@@ -11,69 +11,99 @@ Description: Dynamic animal profile page for Exercise 1B.
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Animal Profile</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>My Profile</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Rammetto+One&display=swap"
+        rel="stylesheet"
+    >
+
     <link rel="stylesheet" href="profile.css">
 </head>
 
 <body>
-    <main class="profile-container">
+    <main class="main-container">
 
-        <header class="profile-header">
-            <img
-                id="cover-image"
-                class="cover-image"
-                src="myprofile/banner.png"
-                alt="Profile cover"
-            >
+        <header id="banner">
+            <div class="banner-inner">
+                <div class="profile-img-wrapper">
+                    <img
+                        id="profile-image"
+                        class="profile-img"
+                        src="myprofile/profile.png"
+                        alt="Profile picture"
+                    >
+                </div>
+            </div>
         </header>
 
-        <section class="profile-info">
-            <img
-                id="profile-image"
-                class="profile-image"
-                src="myprofile/profile.png"
-                alt="Profile image"
-            >
+        <h1 id="profile-name" class="main-title">
+            My Profile
+        </h1>
 
-            <h1 id="profile-name">Profile</h1>
-            <p id="profile-description"></p>
-        </section>
+        <section class="content-block info-section">
+            <div class="text-column">
 
-        <section class="traits-section">
-            <h2>Profile Information</h2>
-            <div id="traits-list"></div>
-        </section>
+                <p id="profile-description"></p>
 
-        <section class="reviews-section">
-            <h2>Endorsements</h2>
-            <div id="reviews-list"></div>
-        </section>
+                <div class="info-row">
+                    <div class="info-label">
+                        <p>Stats / Traits</p>
+                    </div>
 
-        <section class="gallery-section">
-            <h2>Gallery</h2>
+                    <div
+                        id="traits-list"
+                        class="info-value"
+                    ></div>
+                </div>
 
-            <div class="gallery">
+            </div>
+
+            <div class="image-column">
                 <img
                     id="gallery-image-1"
-                    class="gallery-image"
                     src="myprofile/image1.png"
-                    alt="First profile gallery image"
+                    alt="Animal main picture"
                 >
+            </div>
+        </section>
 
+        <section class="content-block endorsements-section">
+            <div class="text-column">
+                <h2>Endorsement</h2>
+                <div id="reviews-list"></div>
+            </div>
+
+            <div class="image-column">
                 <img
                     id="gallery-image-2"
-                    class="gallery-image"
                     src="myprofile/image2.png"
-                    alt="Second profile gallery image"
+                    alt="Animal endorsement picture"
                 >
             </div>
         </section>
 
         <section class="friends-section">
             <h2>Meet the Whole Debugging Squad</h2>
-            <div id="friends-list"></div>
+            <div
+                id="friends-list"
+                class="friends-grid"
+            ></div>
         </section>
+
+        <footer>
+            Zefat Academic College
+        </footer>
 
     </main>
 

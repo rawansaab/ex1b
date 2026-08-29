@@ -1,10 +1,10 @@
 {
   "name": "ex1b-animal-profiles",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Exercise 1B dynamic animal profile application",
+  "main": "profile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node profile.js"
   },
   "dependencies": {
     "express": "^4.21.0",

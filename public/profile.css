@@ -1,24 +1,37 @@
 /*
-Names: Rawan Saab: 213693625, Lareen Kadour: 213992431,
-George Hanna: 324090968
+Names: Rawan Saab: 213693625, Lareen Kadour: 213992431, George Hanna: 324090968
 Date: July / August 2026
 Github URL: https://github.com/rawansaab/ex1b
 Description: Stylesheet for the dynamic animal profile page.
 */
 
+/* -----------------------------
+   Part 0: Global / Reset
+   ----------------------------- */
 * {
   box-sizing: border-box;
 }
 
+/* -----------------------------
+   Part 1: Page background (Body)
+   ----------------------------- */
 body {
   margin: 0;
   background-image: url("background.jpg");
   background-repeat: repeat;
-  background-attachment: fixed;
   font-family: "Bree Serif", serif;
+  background-attachment: fixed;
 }
 
-.profile-container {
+/* -----------------------------
+   Part 2: Main centered container
+   Requirements:
+   - width: 80%
+   - margin: 3% top/bottom and auto left/right
+   - white background + shadow
+   ----------------------------- */
+
+.main-container {
   width: 80%;
   margin: 3% auto;
   background-color: white;
@@ -26,260 +39,305 @@ body {
   position: relative;
 }
 
-.profile-header {
-  width: 100%;
+/* -----------------------------
+   Part 3: Banner (Header)
+   Requirements:
+   - height: 350px
+   - banner image not repeating
+   - banner image should cover the container fully
+   ----------------------------- */
+
+#banner {
   height: 350px;
+  background-image: url("myprofile/banner.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
   position: relative;
-  overflow: hidden;
 }
 
-.cover-image {
-  width: 100%;
-  height: 350px;
-  display: block;
-  object-fit: cover;
-}
-
-.profile-info {
+/* Banner inner container:
+   position relative to serve as a reference for positioned elements
+   inside the banner.
+*/
+.banner-inner {
   position: relative;
-  padding: 110px 5% 35px;
-  text-align: center;
+  height: 100%;
+
+  /* Note:
+     We used 2px in order to keep the same visual alignment
+     as the original design.
+  */
+  left: 2px;
 }
 
-.profile-image {
+/* Wrapper around the profile image:
+   position relative to allow absolute positioning of .profile-img
+   inside it.
+*/
+.profile-img-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+/* Profile image:
+   Requirements:
+   - 200x200 circle
+   - white 10px border
+   - top: 70%
+   - slightly outside to the left
+*/
+.profile-img {
+  border: 10px solid white;
   width: 200px;
   height: 200px;
-  border: 10px solid white;
+  top: 70%;
+  left: -2%;
   border-radius: 50%;
-  object-fit: cover;
   position: absolute;
-  top: -110px;
-  left: 5%;
+  object-fit: cover;
 }
 
-#profile-name {
-  margin: 0 0 20px;
+/* -----------------------------
+   Part 4: Main Title (H1)
+   - custom font
+   - text shadow
+   - centered
+   ----------------------------- */
+
+/* Unified font definition for all main titles
+   to avoid duplicated font-family rules.
+*/
+.main-title,
+.endorsements-section h2,
+.friends-section h2 {
   font-family: "Rammetto One", cursive;
+}
+
+.main-title {
   font-size: 3vw;
+  padding-top: 10px;
   text-shadow: 3px 3px 1px #999999;
   text-align: center;
 }
 
-#profile-description {
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.6;
-  font-size: 18px;
-}
+/* -----------------------------
+   Part 5: Content blocks
+   Layout using Flexbox:
+   - text column + image column side by side
+   - spacing and alignment
+   ----------------------------- */
 
-.traits-section {
+.content-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 2% 5%;
 }
 
-.traits-section h2 {
-  font-family: "Rammetto One", cursive;
-  font-size: 2.5vw;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-#traits-list {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.trait-item {
-  display: flex;
-  gap: 20px;
-  padding: 12px 0;
-  border-bottom: 1px solid #dddddd;
-}
-
-.trait-item strong {
-  width: 40%;
-}
-
-.trait-item span {
+/* Text and image areas take equal flexible space */
+.text-column,
+.image-column {
   flex: 1;
 }
 
-.reviews-section {
-  padding: 3% 5%;
-  background-image: url("clouds.webp");
-  background-repeat: repeat;
-  text-align: center;
-}
-
-.reviews-section h2 {
-  font-family: "Rammetto One", cursive;
-  font-size: 2.5vw;
-  text-transform: uppercase;
-}
-
-#reviews-list {
-  max-width: 850px;
-  margin: 0 auto;
-}
-
-.review-item {
-  border-left: 10px solid #cccaca;
-  background-color: white;
-  margin-bottom: 15px;
-  padding: 15px;
-}
-
-.review-item p {
-  margin-top: 0;
-  line-height: 1.5;
-}
-
-.review-item strong {
-  display: block;
-  font-style: italic;
-}
-
-.gallery-section {
-  padding: 3% 5%;
-  text-align: center;
-}
-
-.gallery-section h2 {
-  font-family: "Rammetto One", cursive;
-  font-size: 2.5vw;
-  text-transform: uppercase;
-}
-
-.gallery {
+/* Image column centered */
+.image-column {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
 }
 
-.gallery-image {
-  width: 40%;
-  max-width: 400px;
+/* Shared content images size limits */
+.content-block img {
+  display: block;
   max-height: 600px;
-  object-fit: cover;
+  max-width: 400px;
+  width: 30vw;
 }
+
+/* Info rows:
+   label + dynamically generated values
+*/
+.info-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+  align-items: flex-start;
+}
+
+.info-label {
+  width: 40%;
+}
+
+.info-value {
+  flex: 1;
+}
+
+/* Each dynamically generated trait */
+.trait-item {
+  margin-bottom: 8px;
+}
+
+.trait-item strong,
+.trait-item span {
+  display: inline;
+}
+
+/* -----------------------------
+   Part 6: Endorsements section
+   - clouds background
+   - reversed row
+   - image on left, text on right
+   - bold text and centered layout
+   ----------------------------- */
+
+.endorsements-section {
+  background-image: url("clouds.webp");
+  background-repeat: repeat;
+  flex-direction: row-reverse;
+  text-align: center;
+}
+
+.endorsements-section h2 {
+  text-transform: uppercase;
+  font-size: 2.5vw;
+}
+
+/* Endorsement card styling */
+.endorsement-card {
+  border-left: 10px solid #cccaca;
+  background-color: white;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.endorsement-card hr {
+  width: 40%;
+}
+
+.endorsement-card span {
+  font-style: italic;
+  display: block;
+}
+
+/* -----------------------------
+   Part 7: Friends section
+   - centered section title
+   - image gallery using CSS Grid
+   - 4 columns of 200px
+   ----------------------------- */
 
 .friends-section {
-  padding: 3% 5%;
+  padding: 2% 5%;
   text-align: center;
 }
 
 .friends-section h2 {
-  font-family: "Rammetto One", cursive;
   font-size: 2.5vw;
   text-transform: uppercase;
 }
 
-#friends-list {
+/* Grid layout for friends images */
+.friends-grid {
   display: grid;
-  grid-template-columns: repeat(4, 180px);
+  grid-template-columns: 200px 200px 200px 200px;
   justify-content: space-evenly;
-  gap: 20px;
+  align-items: end;
+  width: 100%;
 }
 
-.friend-item a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.friend-item img {
-  width: 180px;
-  height: 240px;
-  padding: 8px;
+/* Friends images size and cropping */
+.friends-grid img {
+  padding: 10px;
+  height: 300px;
+  width: 200px;
+  box-sizing: border-box;
   object-fit: cover;
 }
 
-.friend-item span {
+/* Friends links remain simple,
+   as in the original visual design.
+*/
+.friends-grid a {
   display: block;
-  padding: 8px 15px;
-  background-color: #eeeeee;
-  border-radius: 5px;
-}
-
-.friend-item a:hover span {
-  background-color: #dddddd;
 }
 
 /* -----------------------------
-   Part 9: Responsive design
+   Part 8: Footer
+   ----------------------------- */
+
+footer {
+  background-color: #5f5b5b;
+  color: black;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* -----------------------------
+   Part 9: Responsive (Mobile / Tablet)
+   - Make container full width
+   - Stack content blocks vertically
+   - Friends grid becomes 1 column
    ----------------------------- */
 
 @media screen and (max-width: 768px) {
-  .profile-container {
+
+  /* Container full width */
+  .main-container {
     width: 100%;
     margin: 0;
   }
 
-  .profile-header,
-  .cover-image {
-    height: 250px;
+  /* Banner keeps the same basic structure */
+  .banner-inner {
+    left: 0;
   }
 
-  .profile-info {
-    padding: 120px 5% 30px;
+  /* Profile image centers better on smaller screens */
+  .profile-img {
+    left: 25%;
+    top: 65%;
   }
 
-  .profile-image {
-    width: 180px;
-    height: 180px;
-    top: -90px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  #profile-name {
+  /* Push title down so it will not sit under the profile image */
+  .main-title {
     font-size: 8vw;
+    margin-top: 140px;
+    text-align: center;
   }
 
-  #profile-description {
-    font-size: 16px;
-  }
-
-  .traits-section h2,
-  .reviews-section h2,
-  .gallery-section h2,
-  .friends-section h2 {
-    font-size: 6vw;
-  }
-
-  .trait-item {
+  /* One column:
+     image above text
+  */
+  .content-block {
     flex-direction: column;
-    gap: 5px;
+    align-items: stretch;
+    gap: 20px;
   }
 
-  .trait-item strong {
-    width: 100%;
+  .content-block .image-column {
+    order: -1;
   }
 
-  .gallery {
-    flex-direction: column;
-  }
-
-  .gallery-image {
+  .content-block img {
     width: 90%;
     max-width: 400px;
     height: auto;
+    max-height: none;
   }
 
-  #friends-list {
+  /* Friends:
+     one image per row
+  */
+  .friends-grid {
     grid-template-columns: 1fr;
     justify-items: center;
+    row-gap: 20px;
   }
 
-  .friend-item img {
+  .friends-grid img {
     width: 200px;
-    height: 280px;
-  }
-
-  .friend-item {
-    margin-bottom: 20px;
+    height: 300px;
   }
 }
